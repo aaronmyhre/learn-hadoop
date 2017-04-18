@@ -1,0 +1,15 @@
+Kafka - homebrew
+
+brew install kafka
+
+1. start zookeeper
+zkserver start
+
+2. start kafka
+cd /usr/local/Cellar/kafka/0.10.2.0/bin
+kafka-server-start /usr/local/etc/kafka/server.properties
+
+
+3. create topic
+kafka-topics --list --zookeeper localhost:2181
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test

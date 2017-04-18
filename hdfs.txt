@@ -1,0 +1,10 @@
+hdfs commands
+
+# list data
+hdfs dfs -ls /
+
+# create folder
+hdfs dfs -mkdir "directory_name"
+
+# push data
+hdfs dfs -put data.csv /data

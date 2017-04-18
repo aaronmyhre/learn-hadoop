@@ -1,0 +1,74 @@
+# Requirements
+1. java must be installed
+2. ssh is required and pdsh is recommended
+3. brew must be installed
+
+# Make sure homebrew is installed
+1. download
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+2. check version
+$ java -version
+
+3. if java is installed, something similar to the below
+java version "1.8.0_25"
+Java(TM) SE Runtime Environment (build 1.8.0_25-b17)
+Java HotSpot(TM) 64-Bit Server VM (build 25.25-b02, mixed mode)
+
+# Install java
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+# Install pdsh
+brew install pdsh
+
+# Download hadoop
+$ brew search hadoop
+$ brew install hadoop
+
+4. enable remote login
+$ ssh localhost
+
+5. update hadoop configuration
+
+5.1 - find java location
+ $ /usr/libexec/java_home
+
+ Likely results
+ /Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
+
+5.2 - update configuration settings in
+
+1) etc/hadoop/core-site.xml:
+
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://localhost:9000</value>
+    </property>
+</configuration>
+
+2) etc/hadoop/hdfs-site.xml:
+
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+</configuration>
+
+3) etc/hadoop/mapred-site.xml:
+
+<configuration>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+</configuration>
+
+4) etc/hadoop/yarn-site.xml:
+
+<configuration>
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+</configuration>

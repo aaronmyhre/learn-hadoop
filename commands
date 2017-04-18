@@ -1,0 +1,7 @@
+hstart
+
+/usr/local/Cellar/hadoop/2.7.3/sbin/start-dfs.sh
+/usr/local/Cellar/hadoop/2.7.3/sbin/start-yarn.sh
+
+#
+/usr/local/Cellar/hadoop/2.7.3/libexec/etc/hadoop/core-site.xml

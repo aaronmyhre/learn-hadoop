@@ -1,0 +1,15 @@
+Spark streaming
+Extension of core Spark API that enables high-throughput, fault-tolerant stream
+processing of live data.
+
+- Can be ingested from streaming sources, eg kafka, flume, kinesis, or TCP socketes
+- Processed data can be pushed to souces (file systems, databases, live dashboards)
+- can also apply graph processing and ML to streams
+
+How it works
+- Spark Streaming creates a high-level abstraction called discrentized stream or
+  Dstrea ( micro batches)
+- Created from input streams
+
+Spreaming programing
+http://spark.apache.org/docs/latest/streaming-programming-guide.html
